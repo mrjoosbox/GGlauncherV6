@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- title -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GGlauncherV6</title>
+</head>
+<!-- style -->
+<body>
+  <head>
+    <style>
+      .scroll-container {
+        width: 100%;
+        overflow-x: auto; 
+        white-space: nowrap; 
+        padding: 10px 0;
+        border: none 
+      }
+  
+      .scroll-content {
+        display: inline-flex; 
+      }
+  
+      .button {
+        margin-right: 10px; 
+        padding: 10px 20px;
+        background-color: #000000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+  
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      #fullscreenButton {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000;
+        color: white;
+        padding: 15px 30px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #fullscreenButton:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <!--buttons-->
+  <body>
+    <div class="scroll-container">
+      <div class="scroll-content">
+        <button class="button" onclick="changeIframe('https://mrjoosbox.neocities.org')">EXTHANG3R</button>
+        <button class="button" onclick="changeIframe('https://deadshot.io')">deadshot</button>
+        <button class="button" onclick="changeIframe('https://unblocked-games.s3-accelerate.amazonaws.com/fps/index.html')">freezeova</button>
+        <button class="button" onclick="changeIframe('https://cooking.konpan.ch/')">ShadowV3</button>
+        <button class="button" onclick="changeIframe('https://ripdoge2024.mindboggle.us/')">pizzaedition</button>
+        <button class="button" onclick="changeIframe('https://btc.orenbayanyazma.com.tr/index.html')">duckhtml</button>
+        <button class="button" onclick="changeIframe('https://zva-c.global.ssl.fastly.net/')">US4</button>
+        <button class="button" onclick="changeIframe('https://tbg95.s3.amazonaws.com/index.html')">tbg95</button>
+        <button class="button" onclick="changeIframe('https://stickmanfighter.online/')">stickmanfighter</button>
+        <button class="button" onclick="changeIframe('https://didhe.party.jlengineering.se')">SPACE</button>
+        <button class="button" onclick="changeIframe('https://robloxunblocked.s3.amazonaws.com/index.html')">robloxunblocked</button>
+        <button class="button" onclick="changeIframe('https://math4kidz.wiki')">truffles</button>
+        <button class="button" onclick="changeIframe('https://bflixz.org/movie/')">Bflix</button>
+        <button class="button" onclick="changeIframe('https://io-games-unblocked.s3.amazonaws.com/go/drifthunters.html')">iogames</button>
+        <button class="button" onclick="changeIframe('https://demo.emulatorjs.org/')">emulatorJS</button>
+        <button class="button" onclick="changeIframe('https://connectionsnyt.com/hot-games')">connectionsnyt</button>
+        <button class="button" onclick="changeIframe('https://bulletbros.org')">bulletbros</button>
+        <button class="button" onclick="changeIframe('https://krunker.io')">krunker</button>
+        <button class="button" onclick="changeIframe('https://freelearn.neocities.org/')">freelearn</button>
+        <button class="button" onclick="changeIframe('https://fsh.zone')">fsh zone</button>
+      </div>
+    </div>
+    <iframe id="myIframe" src="" width="100%" style="border:black;" allowfullscreen></iframe>
+    
+    <button id="fullscreenButton" onclick="toggleFullscreen()">Go Fullscreen</button>
+  
+    <!-- scripts -->
+    <script>
+      
+      function changeIframe(url) {
+        var iframe = document.getElementById('myIframe');
+        iframe.src = url;
+
+        iframe.style.height = window.innerHeight + 'px';
+      }
+
+      window.onload = function() {
+        document.getElementById('myIframe').style.height = window.innerHeight + 'px';
+      };
+
+      window.onresize = function() {
+        document.getElementById('myIframe').style.height = window.innerHeight + 'px';
+      };
+
+      function toggleFullscreen() {
+        var iframe = document.getElementById('myIframe');
+        if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { 
+          iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { 
+          iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { 
+          iframe.msRequestFullscreen();
+        }
+      }
+    </script>
+
+    <!-- background image -->
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url('https://64.media.tumblr.com/aa398772b1e0b6ec73a946f0345c447a/fcf1d4a8156bfe76-f5/s400x600/62ee3a5c6671de6326e1d320912fd5e2aaad57cb.gif');
+      }
+    </style>
+  </body>
+</html>
