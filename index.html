@@ -5,127 +5,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GGlauncherV6</title>
-</head>
-<!-- style -->
-<body>
-  <head>
-    <style>
-      .scroll-container {
-        width: 100%;
-        overflow-x: auto; 
-        white-space: nowrap; 
-        padding: 10px 0;
-        border: none 
-      }
-  
-      .scroll-content {
-        display: inline-flex; 
-      }
-  
-      .button {
-        margin-right: 10px; 
-        padding: 10px 20px;
-        background-color: #000000;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-      }
-  
-      .button:hover {
-        background-color: #45a049;
-      }
+  <style>
+    .scroll-container {
+      width: 100%;
+      overflow-x: auto; 
+      white-space: nowrap; 
+      padding: 10px 0;
+      border: 2px solid transparent;
+      border-image: linear-gradient(to bottom right, #8345a0, black, rgb(95, 0, 16)) 1;
+    }
 
-      #fullscreenButton {
-        position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #000;
-        color: white;
-        padding: 15px 30px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .scroll-content {
+      display: inline-flex; 
+    }
 
-      #fullscreenButton:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  <!--buttons-->
-  <body>
-    <div class="scroll-container">
-      <div class="scroll-content">
-        <button class="button" onclick="changeIframe('https://mrjoosbox.neocities.org')">EXTHANG3R</button>
-        <button class="button" onclick="changeIframe('https://deadshot.io')">deadshot</button>
-        <button class="button" onclick="changeIframe('https://unblocked-games.s3-accelerate.amazonaws.com/fps/index.html')">freezeova</button>
-        <button class="button" onclick="changeIframe('https://cooking.konpan.ch/')">ShadowV3</button>
-        <button class="button" onclick="changeIframe('https://ripdoge2024.mindboggle.us/')">pizzaedition</button>
-        <button class="button" onclick="changeIframe('https://btc.orenbayanyazma.com.tr/index.html')">duckhtml</button>
-        <button class="button" onclick="changeIframe('https://zva-c.global.ssl.fastly.net/')">US4</button>
-        <button class="button" onclick="changeIframe('https://tbg95.s3.amazonaws.com/index.html')">tbg95</button>
-        <button class="button" onclick="changeIframe('https://stickmanfighter.online/')">stickmanfighter</button>
-        <button class="button" onclick="changeIframe('https://didhe.party.jlengineering.se')">SPACE</button>
-        <button class="button" onclick="changeIframe('https://robloxunblocked.s3.amazonaws.com/index.html')">robloxunblocked</button>
-        <button class="button" onclick="changeIframe('https://math4kidz.wiki')">truffles</button>
-        <button class="button" onclick="changeIframe('https://bflixz.org/movie/')">Bflix</button>
-        <button class="button" onclick="changeIframe('https://io-games-unblocked.s3.amazonaws.com/go/drifthunters.html')">iogames</button>
-        <button class="button" onclick="changeIframe('https://demo.emulatorjs.org/')">emulatorJS</button>
-        <button class="button" onclick="changeIframe('https://connectionsnyt.com/hot-games')">connectionsnyt</button>
-        <button class="button" onclick="changeIframe('https://bulletbros.org')">bulletbros</button>
-        <button class="button" onclick="changeIframe('https://krunker.io')">krunker</button>
-        <button class="button" onclick="changeIframe('https://freelearn.neocities.org/')">freelearn</button>
-        <button class="button" onclick="changeIframe('https://fsh.zone')">fsh zone</button>
-        <button class="button" onclick="changeIframe('https://supersurge.apollohypnotherapy.co.uk/')">light</button>
-      </div>
-    </div>
-    <iframe id="myIframe" src="" width="100%" style="border:black;" allowfullscreen></iframe>
+    .button {
+      margin-right: 10px; 
+      padding: 10px 20px;
+      background-color: #000000;
+      color: white;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      border-image: linear-gradient(to bottom right, #8345a0, black, rgb(95, 0, 16)) 1;
+    }
+
+    .button:hover {
+      animation: size 1s infinite ease-in-out;
+
+      background-color: #8345a0;
+    }
+    @keyframes float {
+      12.5% { transform: translateY(0px); }
+      25% { transform: translateY(1px); }
+      37.5% { transform: translateY(2px); }
+      50% { transform: translateY(1px); }
+      62.5% { transform: translateY(0px); }
+      75% { transform: translateY(-1px); }
+      87.5% { transform: translateY(-2px); }
+      100% { transform: translateY(-1px); }
+  }
+    @keyframes size {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
     
-    <button id="fullscreenButton" onclick="toggleFullscreen()">Go Fullscreen</button>
+    #fullscreenButton {
+      position: fixed;
+      bottom: 10px;
+      left: 45%;
+      background-color: #000;
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      cursor: ns-resize;
+      border-image: linear-gradient(to bottom right, #8345a0, black, rgb(95, 0, 16)) 1;
+    }
+
+    #fullscreenButton:hover {
+      background-color: #8345a0;
+      animation: infinite size 1s ease-in-out;
+    }
+
+    #overlayImage {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 9999; 
+      display: block;
+    }
+
+    body {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-image: url('https://64.media.tumblr.com/aa398772b1e0b6ec73a946f0345c447a/fcf1d4a8156bfe76-f5/s400x600/62ee3a5c6671de6326e1d320912fd5e2aaad57cb.gif');
+    }
+    .iframe {
+      border: 2px solid transparent;
+      border-image: linear-gradient(to bottom right, #8345a0, black, rgb(95, 0, 16)) 1;
+    }
+
+  </style>
+</head>
+<!--buttons-->
+<body>
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/GGlauncherV6_spin.gif" alt="logo" style="width: 50px; height: 50px;">
+      <button class="button" onclick="changeIframe('https://educationworld.neocities.org')">EXTHANG3R</button>
+      <button class="button" onclick="changeIframe('https://extprint3r.global.ssl.fastly.net')">EXTPRINT3R</button>
+      <button class="button" onclick="changeIframe('https://deadshot.io')">deadshot</button>
+      <button class="button" onclick="changeIframe('https://freezeova.global.ssl.fastly.net/index.html')">freezenova</button>
+      <button class="button" onclick="changeIframe('https://ajh.politechnika-nova.edu.pl/home/')">🤝VAULT</button>
+      <button class="button" onclick="changeIframe('https://astroidv3-ngntxxto.b4a.run/')">asteroid</button>
+      <button class="button" onclick="changeIframe('https://classroom84.global.ssl.fastly.net/')">classroom84</button>
+      <button class="button" onclick="changeIframe('https://thisiscertainlynotuniub.global.ssl.fastly.net/')">UniB</button>
+      <button class="button" onclick="changeIframe('https://fansdumptruck.global.ssl.fastly.net/')">Bolt</button>
+      <button class="button" onclick="changeIframe('https://builtlikearat.advanced-orchestra.site/')">SPACE</button>
+      <button class="button" onclick="changeIframe('https://daydreamx.pro')">DayDreamX</button>
+      <button class="button" onclick="changeIframe('https://study-academics.global.ssl.fastly.net')">the gaming escape</button>
+      <button class="button" onclick="changeIframe('https://bflixz.org')">Bflix</button>
+      <button class="button" onclick="changeIframe('https://demo.emulatorjs.org')">emulatorJS</button>
+      <button class="button" onclick="changeIframe('https://bulletbros.org')">bulletbros</button>
+      <button class="button" onclick="changeIframe('https://krunker.io')">krunker</button>
+      <button class="button" onclick="changeIframe('https://freelearn.neocities.org')">freelearn</button>
+      <button class="button" onclick="changeIframe('https://fsh.zone')">fsh zone</button>
+      <button class="button" onclick="changeIframe('https://ev.io')">ev.io</button>
+      <button class="button" onclick="changeIframe('https://ghostbypassing.pitlobra.ro/')">ghosthub</button>
+      <button class="button" onclick="changeIframe('https://mylearning.imformations.online')">camoflauge</button>
+      <button class="button" onclick="changeIframe('https://vapor.global.ssl.fastly.net')">VAPOR</button>
+      <button class="button" onclick="changeIframe('https://suii.ppcis.org')">pizza edition</button>
+      <button class="button" onclick="changeIframe('https://umcheeto.spelar.se')">duckHTML</button>
+      <button class="button" onclick="changeIframe('https://ytify.us.kg/')">ytify</button>
+      <button class="button" onclick="changeIframe('https://yancharkin.github.io/SpelunkyClassicHDhtml5/')">spelunky</button>
+      <button class="button" onclick="changeIframe('https://radical.global.ssl.fastly.net')">Radical</button>
+    </div>
+  </div>
+
+  <iframe id="myIframe" src="" width="100%" style="border:black;" allowfullscreen></iframe>
   
-    <!-- scripts -->
-    <script>
-      
-      function changeIframe(url) {
-        var iframe = document.getElementById('myIframe');
-        iframe.src = url;
+  <button id="fullscreenButton" onclick="toggleFullscreen()">Go Fullscreen</button>
 
-        iframe.style.height = window.innerHeight + 'px';
+  <!-- overlay image -->
+  <img style="height: 100%; width: 100%;"  id="overlayImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Page_cannot_be_reached.png/800px-Page_cannot_be_reached.png?20250325193412" alt="Overlay Image" onclick="hideOverlay()">
+
+  <!-- scripts -->
+  <script>
+    document.addEventListener('keydown', function (event) {
+      if (event.code === 'Backspace') {
+        window.location.href = 'https://www.google.com';
       }
+    });
 
-      window.onload = function() {
-        document.getElementById('myIframe').style.height = window.innerHeight + 'px';
-      };
+    function changeIframe(url) {
+      var iframe = document.getElementById('myIframe');
+      iframe.src = url;
 
-      window.onresize = function() {
-        document.getElementById('myIframe').style.height = window.innerHeight + 'px';
-      };
+      iframe.style.height = window.innerHeight + 'px';
+    }
 
-      function toggleFullscreen() {
-        var iframe = document.getElementById('myIframe');
-        if (iframe.requestFullscreen) {
-          iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) { 
-          iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) { 
-          iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { 
-          iframe.msRequestFullscreen();
-        }
+    window.onload = function() {
+      document.getElementById('myIframe').style.height = window.innerHeight + 'px';
+    };
+
+    window.onresize = function() {
+      document.getElementById('myIframe').style.height = window.innerHeight + 'px';
+    };
+
+    function toggleFullscreen() {
+      var iframe = document.getElementById('myIframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
       }
-    </script>
+    }
 
-    <!-- background image -->
-    <style>
-      body {
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-image: url('https://64.media.tumblr.com/aa398772b1e0b6ec73a946f0345c447a/fcf1d4a8156bfe76-f5/s400x600/62ee3a5c6671de6326e1d320912fd5e2aaad57cb.gif');
-      }
-    </style>
-  </body>
+    function hideOverlay() {
+      var overlayImage = document.getElementById('overlayImage');
+      overlayImage.style.display = 'none';
+    }
+  </script>
+
+    <!-- license -->
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://www.school0gy.com/downloads">GGlauncherV6</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://guns.lol/mrjoosbox">mrjoosbox</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
+</body>
 </html>
